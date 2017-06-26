@@ -12,7 +12,7 @@ def about(request):
     print 'Inside the the about method'
     return render(request,'frontend/about.html')
 
-def blog(request):
+def profile(request):
     pass
     print 'Inside the the blog method'
-    return render(request,'frontend/blog.html')
+    return render(request,'profile/user_profile.html')
