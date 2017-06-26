@@ -3,5 +3,6 @@ from . import views
 urlpatterns = [
     url(r'^$', views.index),
     url(r'^about$', views.about),
+    url(r'^blog$', views.blog)
 
     ]

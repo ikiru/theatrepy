@@ -9,5 +9,10 @@ def index(request):
     return render(request,'frontend/base.html')
 
 def about(request):
-    print 'Inside the the index method'
+    print 'Inside the the about method'
     return render(request,'frontend/about.html')
+
+def blog(request):
+    pass
+    print 'Inside the the blog method'
+    return render(request,'frontend/blog.html')
