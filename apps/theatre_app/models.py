@@ -3,7 +3,9 @@ from __future__ import unicode_literals
 from django.shortcuts import render, redirect, HttpResponse, reverse
 from django.db import models
 from django.core.urlresolvers import reverse
-from .models import User, Role, State, District, Profile, School, Gradyear
+# from django.contrib.auth .models import User
+# from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User, Group
 
 # Create your models here.
 
@@ -33,42 +35,7 @@ class Profilemanager(models.Manager):
         return errors  # send error messages to the  page
 
 
-class Profile(models, Model):
-    user = models.ForeignKey(User)
-    role = models.ForeignKey(Role)
-    address = models.CharField(max_length=45)
-    city = models.CharField(max_length=45)
-    state = models.CharField(max_length=45)
-    zip = models.CharField(max_length=45)
-    email = models.CharField(max_length=100)
-    phone = models.CharField(max_length=45)
-    mobile = models.CharField(max_length=45)
-    district = models.ForeignKey(District)
-    school = models.ForeignKey(School)
-    gradyear = models.ForeignKey(Gradyear)
-    image = models.CharField(max_length=255)
-    created_at = models.DateTimeField(auto_now_add=True)
-    # create updated_at field as a updated on change Date type field
-    updated_at = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        string_output = "id:{} address:{} city:{} state{} zip{} email{} phone{} district{} school{} image{}"
-        return string_output.format(
-            self.id,
-            self.address,
-            self.city,
-            self.state,
-            self.zip,
-            self.email,
-            self.phone,
-            self.mobile,
-            self.district,
-            self.school,
-            self.image,
-        )
-
-
-class District(models, Models):
+class District(models.Model):
     name = models.CharField(max_length=45)
     created_at = models.DateTimeField(auto_now_add=True)
     # create updated_at field as a updated on change Date type field
@@ -98,7 +65,7 @@ class School(models.Model):
         )
 
 
-class State(models, Model):
+class State(models.Model):
     name = models.CharField(max_length=45)
     district = models.ForeignKey(District)
     school = models.ForeignKey(School)
@@ -112,13 +79,12 @@ class State(models, Model):
             self.id,
             self.name,
             self.district,
-            self.school.
+            self.school,
         )
 
 
-class Gradyear(models, Model):
+class Gradyear(models.Model):
     year = models.CharField(max_length=20)
-    profile = models.ForeignKey(Profile)
     created_at = models.DateTimeField(auto_now_add=True)
     # create updated_at field as a updated on change Date type field
     updated_at = models.DateTimeField(auto_now=True)
@@ -129,4 +95,38 @@ class Gradyear(models, Model):
             self.id,
             self.year,
             self.profile,
+        )
+
+
+class Profile(models.Model):
+    user = models.ForeignKey(User)
+    group = models.ForeignKey(Group)
+    address = models.CharField(max_length=45)
+    city = models.CharField(max_length=45)
+    state = models.CharField(max_length=45)
+    zip = models.CharField(max_length=45)
+    email = models.CharField(max_length=100)
+    phone = models.CharField(max_length=45)
+    mobile = models.CharField(max_length=45)
+    district = models.ForeignKey(District)
+    school = models.ForeignKey(School)
+    gradyear = models.ForeignKey(Gradyear)
+    avatar = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        string_output = "id:{} address:{} city:{} state{} zip{} email{} phone{} district{} school{} image{}"
+        return string_output.format(
+            self.id,
+            self.address,
+            self.city,
+            self.state,
+            self.zip,
+            self.email,
+            self.phone,
+            self.mobile,
+            self.district,
+            self.school,
+            self.avatar,
         )

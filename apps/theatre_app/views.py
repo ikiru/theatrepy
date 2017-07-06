@@ -23,12 +23,10 @@ def profile(request):
 
 
 def login(request):
-    pass
 
     return render(request, 'profile/login.html')
 
 
 def register(request):
-    pass
 
     return render(request, 'profile/register.html')
