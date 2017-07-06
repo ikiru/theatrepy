@@ -3,8 +3,6 @@ from __future__ import unicode_literals
 from django.shortcuts import render, redirect, HttpResponse, reverse
 from django.db import models
 from django.core.urlresolvers import reverse
-# from django.contrib.auth .models import User
-# from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User, Group
 
 # Create your models here.
@@ -99,7 +97,7 @@ class Gradyear(models.Model):
 
 
 class Profile(models.Model):
-    user = models.ForeignKey(User)
+    user = models.OneToOneField(User)
     group = models.ForeignKey(Group)
     address = models.CharField(max_length=45)
     city = models.CharField(max_length=45)

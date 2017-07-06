@@ -1,9 +1,17 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
+from .forms import ProfileForm
 from django.shortcuts import render, redirect, HttpResponse
 
 # Create your views here.
+
+
+def profile_create(request):
+    form = ProfileForm()
+    context = {
+        "form": form
+    }
+    return render(request, 'profile/user_profile.html', context)
 
 
 def index(request):
