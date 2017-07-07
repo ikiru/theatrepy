@@ -109,12 +109,13 @@ class Profile(models.Model):
     district = models.ForeignKey(District)
     school = models.ForeignKey(School)
     gradyear = models.ForeignKey(Gradyear)
+    is_active = models.BooleanField(default=True)
     avatar = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        string_output = "id:{} address:{} city:{} state{} zip{} email{} phone{} district{} school{} image{}"
+        string_output = "id:{} address:{} city:{} state{} zip{} email{} phone{} district{} school{} is_active{} image{}"
         return string_output.format(
             self.id,
             self.address,
