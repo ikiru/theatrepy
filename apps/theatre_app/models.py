@@ -50,16 +50,28 @@ class District(models.Model):
 class School(models.Model):
     name = models.CharField(max_length=100)
     district = models.ForeignKey(District)
+    address = models.CharField(max_length=100)
+    zip = models.CharField(max_length=100)
+    phone = models.CharField(max_length=20)
+    logo = models.CharField(max_length=200)
+    prim_color = models.CharField(max_length=20)
+    sec_color = models.CharField(max_length=20)
     created_at = models.DateTimeField(auto_now_add=True)
     # create updated_at field as a updated on change Date type field
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        string_output = "id:{} name:{}district{}"
+        string_output = "id:{} name:{}district:{}address:{}zip:{} phone:{} logo:{} prim_color:{} sec_color:{}"
         return string_output.format(
             self.id,
             self.name,
             self.district,
+            self.address,
+            self.zip,
+            self.phone,
+            self.logo,
+            self.prim_color,
+            self.sec_color,
         )
 
 
@@ -109,12 +121,13 @@ class Profile(models.Model):
     district = models.ForeignKey(District)
     school = models.ForeignKey(School)
     gradyear = models.ForeignKey(Gradyear)
+    is_active = models.BooleanField(default=True)
     avatar = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        string_output = "id:{} address:{} city:{} state{} zip{} email{} phone{} district{} school{} image{}"
+        string_output = "id:{} address:{} city:{} state{} zip{} email{} phone{} district{} school{} is_active{} image{}"
         return string_output.format(
             self.id,
             self.address,
