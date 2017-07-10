@@ -18,6 +18,12 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^', include('apps.boosters.urls')),
+    url(r'^', include('apps.budget.urls')),
+    url(r'^', include('apps.demerits.urls')),
+    url(r'^', include('apps.inventory.urls')),
+    url(r'^', include('apps.show.urls')),
     url(r'^', include('apps.theatre_app.urls')),
+    url(r'^', include('apps.tpoints.urls')),
     url('', include('social_django.urls', namespace='social')),
 ]

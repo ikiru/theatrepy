@@ -39,6 +39,9 @@ class District(models.Model):
     # create updated_at field as a updated on change Date type field
     updated_at = models.DateTimeField(auto_now=True)
 
+    def __unicode__(self):
+        return self.name
+
     def __str__(self):
         string_output = "id:{} name:{}"
         return string_output.format(
@@ -60,12 +63,14 @@ class School(models.Model):
     # create updated_at field as a updated on change Date type field
     updated_at = models.DateTimeField(auto_now=True)
 
+    def __unicode__(self):
+        return self.name
+
     def __str__(self):
-        string_output = "id:{} name:{}district:{}address:{}zip:{} phone:{} logo:{} prim_color:{} sec_color:{}"
+        string_output = "id:{} name:{}address:{}zip:{} phone:{} logo:{} prim_color:{} sec_color:{}"
         return string_output.format(
             self.id,
             self.name,
-            self.district,
             self.address,
             self.zip,
             self.phone,
@@ -83,13 +88,14 @@ class State(models.Model):
     # create updated_at field as a updated on change Date type field
     updated_at = models.DateTimeField(auto_now=True)
 
+    def __unicode__(self):
+        return self.name
+
     def __str__(self):
         string_output = "id:{} name:{}district{}"
         return string_output.format(
             self.id,
             self.name,
-            self.district,
-            self.school,
         )
 
 
@@ -99,12 +105,14 @@ class Gradyear(models.Model):
     # create updated_at field as a updated on change Date type field
     updated_at = models.DateTimeField(auto_now=True)
 
+    def __unicode__(self):
+        return self.year
+
     def __str__(self):
-        string_output = "id:{} year:{}profile"
+        string_output = "id:{} year:{}"
         return string_output.format(
             self.id,
             self.year,
-            self.profile,
         )
 
 
@@ -126,8 +134,11 @@ class Profile(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def __unicode__(self):
+        return self.user
+
     def __str__(self):
-        string_output = "id:{} address:{} city:{} state{} zip{} email{} phone{} district{} school{} is_active{} image{}"
+        string_output = "id:{} address:{} city:{} state{} zip{} email{} phone{} district{} school{}gradyear{} is_active{} image{}"
         return string_output.format(
             self.id,
             self.address,
@@ -139,5 +150,6 @@ class Profile(models.Model):
             self.mobile,
             self.district,
             self.school,
+            self.gradyear,
             self.avatar,
         )
