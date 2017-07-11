@@ -33,26 +33,8 @@ class Profilemanager(models.Manager):
         return errors  # send error messages to the  page
 
 
-class District(models.Model):
-    name = models.CharField(max_length=45)
-    created_at = models.DateTimeField(auto_now_add=True)
-    # create updated_at field as a updated on change Date type field
-    updated_at = models.DateTimeField(auto_now=True)
-
-    def __unicode__(self):
-        return self.name
-
-    def __str__(self):
-        string_output = "id:{} name:{}"
-        return string_output.format(
-            self.id,
-            self.name,
-        )
-
-
 class School(models.Model):
     name = models.CharField(max_length=100)
-    district = models.ForeignKey(District)
     address = models.CharField(max_length=100)
     zip = models.CharField(max_length=100)
     phone = models.CharField(max_length=20)
@@ -80,10 +62,26 @@ class School(models.Model):
         )
 
 
+class District(models.Model):
+    name = models.CharField(max_length=45)
+    school = models.ForeignKey(School)
+    created_at = models.DateTimeField(auto_now_add=True)
+    # create updated_at field as a updated on change Date type field
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return self.name
+
+    def __str__(self):
+        string_output = "id:{} name:{}"
+        return string_output.format(
+            self.id,
+            self.name,
+        )
+
+
 class State(models.Model):
     name = models.CharField(max_length=45)
-    district = models.ForeignKey(District)
-    school = models.ForeignKey(School)
     created_at = models.DateTimeField(auto_now_add=True)
     # create updated_at field as a updated on change Date type field
     updated_at = models.DateTimeField(auto_now=True)
@@ -121,7 +119,9 @@ class Profile(models.Model):
     group = models.ForeignKey(Group)
     address = models.CharField(max_length=45)
     city = models.CharField(max_length=45)
-    state = models.CharField(max_length=45)
+    state = models.ForeignKey(State)
+    district = models.ForeignKey(District)
+    school = models.ForeignKey(School)
     zip = models.CharField(max_length=45)
     email = models.CharField(max_length=100)
     phone = models.CharField(max_length=45)
