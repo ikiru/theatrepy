@@ -24,7 +24,7 @@ class Audtion(models.Model):
     notes = models.CharField(max_length=10)
     danceexp = models.TextField()
     vocalexp = models.TextField()
-    physicallimitation = models.CharField(max_length=100)
+    physical_limitation = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -62,11 +62,32 @@ class Venue(models.Model)
     city = models.CharField(max_length=100)
     state_id
     zip = models.CharField(max_length=100)
-    phone
+    phone = models.CharField(max_length=100)
     website = models.CharField(max_length=200)
     email = models.CharField(max_length=100)
     school_id
-    in_district
-    notes = = models.TextField()
+    in_district = models.BooleanField(default=True)
+    notes = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+class DanceType(models.Model):
+    name = models.CharField(max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+class ConflictReason(models.Model):
+    name = models.CharField(max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+class Conflict(models.Model):
+    date = models.DateTimeField(auto_now=True)
+    note = models.TextField()
+    reason_id =
+    is_approved = models.BooleanField(defult=false)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
