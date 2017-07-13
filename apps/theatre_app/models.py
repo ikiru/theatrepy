@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect, HttpResponse, reverse
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User, Group
-from django.contrib.auth.forms import login
+
 
 # Create your models here.
 
@@ -36,12 +36,12 @@ class Profilemanager(models.Manager):
 
 class School(models.Model):
     name = models.CharField(max_length=100)
-    address = models.CharField(max_length=100)
-    zip = models.CharField(max_length=100)
-    phone = models.CharField(max_length=20)
-    logo = models.CharField(max_length=200)
-    prim_color = models.CharField(max_length=20)
-    sec_color = models.CharField(max_length=20)
+    address = models.CharField(max_length=100, null=True)
+    zip = models.CharField(max_length=100, null=True)
+    phone = models.CharField(max_length=20,  null=True)
+    logo = models.CharField(max_length=200,  null=True)
+    prim_color = models.CharField(max_length=20,  null=True)
+    sec_color = models.CharField(max_length=20,  null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     # create updated_at field as a updated on change Date type field
     updated_at = models.DateTimeField(auto_now=True)

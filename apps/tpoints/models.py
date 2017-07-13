@@ -26,7 +26,7 @@ class Trank(models.Model):
     name = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     # create updated_at field as a updated on change Date type field
-    updated_at = models.DateTimeField(auto_now=True)
+    update_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         string_output = "id:{} name:{}"
@@ -50,7 +50,7 @@ class Tlength(models.Model):
         )
 
 
-class Tcatagory(models.Model):
+class Tcategory(models.Model):
     name = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     # create updated_at field as a updated on change Date type field
