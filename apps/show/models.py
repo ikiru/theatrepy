@@ -87,7 +87,7 @@ class ConflictReason(models.Model):
 class Conflict(models.Model):
     date = models.DateTimeField(auto_now=True)
     note = models.TextField()
-    reason_id =
+    conflicteason = models.ForeignKey(ConflictReason)
     is_approved = models.BooleanField(defult=false)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
