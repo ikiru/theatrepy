@@ -22,6 +22,22 @@ class DanceType(models.Model):
         )
 
 
+class SpecialSkills(models.Model):
+    name = models.CharField(max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return self.name
+
+    def __str__(self):
+        string_output = "id:{} name:{}"
+        return string_output.format(
+            self.id,
+            self.name,
+        )
+
+
 class VocalType(models.Model):
     name = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -94,6 +110,22 @@ class Rolelist(models.Model):
         )
 
 
+class ConflictReason(models.Model):
+    name = models.CharField(max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return self.name
+
+    def __str__(self):
+        string_output = "id:{} name:{}"
+        return string_output.format(
+            self.id,
+            self.name,
+        )
+
+
 class Audtion(models.Model):
     user = models.ForeignKey(User)
     age = models.IntField()
@@ -114,6 +146,7 @@ class Audtion(models.Model):
     danceexp = models.TextField()
     vocaltype = models.ForeignKey(VocalType)
     vocalexp = models.TextField()
+    specialskill = models.ForeignKey(SpecialSkill)
     note = models.TextField()
     physical_limitation = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -154,6 +187,16 @@ class Publisher(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def __unicode__(self):
+        return self.name
+
+    def __str__(self):
+        string_output = "id:{} name:{}"
+        return string_output.format(
+            self.id,
+            self.name,
+        )
+
 
 class Venue(models.Model)
     user = models.ForeignKey(User)
@@ -171,11 +214,23 @@ class Venue(models.Model)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def __unicode__(self):
+        return self.name
 
-class ConflictReason(models.Model):
-    name = models.CharField(max_length=100)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        string_output = "id:{} user: {} name:{} address:{} city:{} state:{} zip:{} phone:{} website:{} in_district: {} notes:{}"
+        return string_output.format(
+            self.id,
+            self.user,
+            self.name,
+            self, address,
+            self.city,
+            self.state,
+            self.zip,
+            self.phone,
+            self.website,
+            self.in_district,
+        )
 
 
 class Conflict(models.Model):
@@ -186,3 +241,17 @@ class Conflict(models.Model):
     is_approved = models.BooleanField(defult=false)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return self.name
+
+    def __str__(self):
+        string_output = "id:{} user:{}date:{}note:{} conflicteason:{} is_approved:{}"
+        return string_output.format(
+            self.id,
+            self.user,
+            self.date,
+            self.note,
+            self.conflicteason,
+            self.is_approved,
+        )
