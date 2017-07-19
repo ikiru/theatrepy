@@ -31,14 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'social_django',
-    'apps.boosters',
-    'apps.budget',
-    'apps.demerits',
-    'apps.inventory',
-    'apps.show',
     'apps.theatre_app',
-    'apps.tpoints',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
