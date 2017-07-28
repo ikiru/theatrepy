@@ -89,3 +89,75 @@ class SpecialSkillViewSet(viewsets.ModelViewSet):
     """
     queryset = SpecialSkill.objects.all()
     serializer_class = SpecialSkillSerializer
+
+
+class VocalTypeViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = VocalType.objects.all()
+    serializer_class = VocalTypelSerializer
+
+
+class ShowlistViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Showlist.objects.all()
+    serializer_class = ShowlistSerializer
+
+
+class TechrolelistViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Techrolelist.objects.all()
+    serializer_class = TechrolelistSerializer
+
+
+class RolelistViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Rolelistobjects.all()
+    serializer_class = RolelistSerializer
+
+
+class ConflictViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Conflict.objects.all()
+    serializer_class = ConflictSerializer
+
+
+class ConflictReasonViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Conflicteason.objects.all()
+    serializer_class = ConflictReasonSerializer
+
+
+class AudtionViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Audtion.objects.all()
+    serializer_class = AudtionSerializer
+
+
+class PublisherViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Publisher.objects.all()
+    serializer_class = PublisherSerializer
+
+
+class VenueViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Venue.objects.all()
+    serializer_class = VenueSerializer
