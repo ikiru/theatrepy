@@ -1,6 +1,6 @@
 from django.conf.urls import url, include
 from rest_framework import routers
-from tutorial.quickstart import views
+from . import views
 
 router = routers.DefaultRouter()
 router.register(r'school', views.SchoolViewSet)
@@ -12,16 +12,16 @@ router.register(r'trank', views.TrankViewSet)
 router.register(r'tlength', views.TlengthViewSet)
 router.register(r'tcatagory', views.TcatagoryViewSet)
 router.register(r'thonor', views.ThonorViewSet)
-router.register(r'dance', views.DanceViewSet)
+router.register(r'dancetype', views.DanceTypeViewSet)
 router.register(r'specialskill', views.SpecialSkillViewSet)
 router.register(r'vocaltype', views.VocalTypeViewSet)
 router.register(r'showlist', views.ShowlistViewSet)
 router.register(r'techrolelist', views.TechrolelistViewSet)
 router.register(r'rolelist', views.RolelistViewSet)
 router.register(r'conflict', views.ConflictViewSet)
-router.register(r'conflicteason', views.ConflictViewSet)
+router.register(r'conflictreason', views.ConflictReasonViewSet)
 router.register(r'audition', views.AudtionViewSet)
-router.register(r'publidher', views.PublisherViewSet)
+router.register(r'publisher', views.PublisherViewSet)
 router.register(r'venue', views.VenueViewSet)
 
 # Wire up our API using automatic URL routing.

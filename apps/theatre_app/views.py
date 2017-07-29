@@ -1,13 +1,13 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from tutorial.quickstart.serializers import UserSerializer, GroupSerializer
+from serializers import *
 
 
 class SchoolViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
     """
-    queryset = School.objects.all().order_by('-date_joined')
+    queryset = School.objects.all()
     serializer_class = SchoolSerializer
 
 
@@ -75,12 +75,12 @@ class ThonorViewSet(viewsets.ModelViewSet):
     serializer_class = ThonorSerializer
 
 
-class DanceViewSet(viewsets.ModelViewSet):
+class DanceTypeViewSet(viewsets.ModelViewSet):
     """
     APIz endpoint that allows groups to be viewed or edited.
     """
-    queryset = Dance.objects.all()
-    serializer_class = DanceSerializer
+    queryset = DanceType.objects.all()
+    serializer_class = DanceTypeSerializer
 
 
 class SpecialSkillViewSet(viewsets.ModelViewSet):
@@ -96,7 +96,7 @@ class VocalTypeViewSet(viewsets.ModelViewSet):
     API endpoint that allows groups to be viewed or edited.
     """
     queryset = VocalType.objects.all()
-    serializer_class = VocalTypelSerializer
+    serializer_class = VocalTypeSerializer
 
 
 class ShowlistViewSet(viewsets.ModelViewSet):
@@ -119,7 +119,7 @@ class RolelistViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows groups to be viewed or edited.
     """
-    queryset = Rolelistobjects.all()
+    queryset = Rolelist.objects.all()
     serializer_class = RolelistSerializer
 
 
@@ -135,7 +135,7 @@ class ConflictReasonViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows groups to be viewed or edited.
     """
-    queryset = Conflicteason.objects.all()
+    queryset = ConflictReason.objects.all()
     serializer_class = ConflictReasonSerializer
 
 
