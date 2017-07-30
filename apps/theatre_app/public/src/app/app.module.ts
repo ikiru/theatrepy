@@ -4,7 +4,7 @@ import { NgModule } from "@angular/core";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
-import { AppRoutingModule } from "./app-routing.module";
+// import { AppRoutingModule } from "./app-routing.module";
 
 // Components
 import { AppComponent } from "./app.component";
@@ -19,8 +19,8 @@ import { SchoolService } from "./school.service";
     NgModule,
     NgbModule,
     FormsModule,
-    HttpModule,
-    AppRoutingModule
+    HttpModule
+    // AppRoutingModule
   ],
   providers: [SchoolService],
   bootstrap: [AppComponent]
