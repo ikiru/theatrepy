@@ -10,7 +10,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 
 // Services
-import { SchoolService } from "./services/school.service";
+import { SchoolService } from "./school.service";
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +22,7 @@ import { SchoolService } from "./services/school.service";
     HttpModule,
     AppRoutingModule
   ],
-  providers: [SchoolSerivice],
+  providers: [SchoolService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
