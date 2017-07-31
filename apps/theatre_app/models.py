@@ -499,3 +499,140 @@ class Conflict(models.Model):
             self.conflicteason,
             self.is_approved,
         )
+
+    class Donor(models.Model):
+        user = models.ForeignKey(User)
+        firstname = models.CharField(max_length=100)
+        lastname = models.CharField(max_length=100)
+        business_name = models.CharField(max_length=100)
+        address = models.CharField(max_length=100)
+        city = models.CharField(max_length=100)
+        state = models.ForeignKey(State)
+        zip = models.CharField(max_length=100)
+        phone = models.CharField(max_length=100)
+        is_active = models.BooleanField()
+        note = models.TextField()
+        email = models.CharField(max_length=100)
+        school_id = models.CharField(max_length=100)
+        created_at = models.DateTimeField(auto_now_add=True)
+        updated_at = models.DateTimeField(auto_now=True)
+
+        def __unicode__(self):
+            return self.name
+
+        def __str__(self):
+            string_output = "id:{} user:{}firstname:{}lastname:{}business_name:{}address:{} city:{} state_id:{} zip:{} phone:{} is_active:{} date:{}note:{} note:{} email:{} school_id:{} "
+            return string_output.format(
+                self.id,
+                self.user,
+                self.firstname,
+                self.lastname,
+                self.business_name,
+                self.address,
+                self.city,
+                self.state_id,
+                self.zip,
+                self.phone,
+                self.is_active,
+                self.date,
+                self.note,
+                self.email,
+                self.school_id,
+            )
+
+        class Donationtype(models.Model):
+            name = models.CharField(max_length=100)
+            created_at = models.DateTimeField(auto_now_add=True)
+            updated_at = models.DateTimeField(auto_now=True)
+
+            def __unicode__(self):
+                return self.name
+
+            def __str__(self):
+                string_output = "id:{} name:{}"
+                return string_output.format(
+                    self.id,
+                    self.name,
+                )
+
+        class Donationtype(models.Model):
+            name = models.CharField(max_length=100)
+            user = models.CharField(max_length=100)
+            name = models.CharField(max_length=100)
+            donor = models.ForeignKey(Donor)
+            date = models.DateField()
+            donationtype = models.ForeignKey(Donationtype)
+            note = models.TextField()
+            has_receipt = models.BooleanField()
+            school = models.ForeignKey(School)
+            value = models.IntegerField()
+            upload = models.CharField(max_length=200)
+            updated_at = models.DateTimeField(auto_now=True)
+            created_at = models.DateTimeField(auto_now_add=True)
+
+            def __unicode__(self):
+                return self.name
+
+            def __str__(self):
+                string_output = "id:{} name:{}"
+                return string_output.format(
+                    self.id,
+                    self.user,
+                    self.name,
+                    self.donor,
+                    self.date,
+                    self.donationtype,
+                    self.note,
+                    self.has_receipt,
+                    self.school,
+                    self.value,
+                    self.upload,
+                    self.updated_at,
+                    self.created_at,
+                )
+
+    class Directorsnote(models.Model):
+        name = models.CharField(max_length=100)
+        user = models.CharField(max_length=100)
+        school = models.ForeignKey(School)
+        show = models.ForeignKey(Show)
+        audition = models.ForeignKey(Audtion)
+        reading = models.IntegerField()
+        characterization = models.IntegerField()
+        direction = models.IntegerField()
+        vocal = models.IntegerField()
+        movement = models.IntegerField()
+        reading_note = models.TextField()
+        characterization_note = models.TextField()
+        direction_note = models.TextField()
+        vocal_note = models.TextField()
+        movement_note = models.TextField()
+        overall_note = models.TextField()
+        updated_at = models.DateTimeField(auto_now=True)
+        created_at = models.DateTimeField(auto_now_add=True)
+
+        def __unicode__(self):
+            return self.name
+
+        def __str__(self):
+            string_output = "id:{} name:{} school:{} show:{} audition:{}reading:{} characterization:{} direction:{} vocal:{} movement:{} characterization_note:{} direction_note:{} vocal_note:{} movement_note:{} reading_note:{} overall_note:{}"
+            return string_output.format(
+                self.id,
+                self.user,
+                self.school,
+                self.show,
+                self.audition,
+                self.reading,
+                self.characterization,
+                self.direction,
+                self.vocal,
+                self.movement,
+                self.characterization_note,
+                self.direction_note,
+                self.vocal_note,
+                self.movement_note,
+                self.reading_note,
+                self.overall_note,
+                self.updated_at,
+                self.created_at,
+            )
