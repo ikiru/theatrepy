@@ -426,6 +426,53 @@ class Audtion(models.Model):
         )
 
 
+class Directorsnote(models.Model):
+    name = models.CharField(max_length=100)
+    user = models.ForeignKey(School)
+    school = models.ForeignKey(School)
+    show = models.ForeignKey(Show)
+    audition = models.ForeignKey(Audtion)
+    reading = models.IntegerField()
+    characterization = models.IntegerField()
+    direction = models.IntegerField()
+    vocal = models.IntegerField()
+    movement = models.IntegerField()
+    reading_note = models.TextField()
+    characterization_note = models.TextField()
+    direction_note = models.TextField()
+    vocal_note = models.TextField()
+    movement_note = models.TextField()
+    overall_note = models.TextField()
+    updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __unicode__(self):
+        return self.name
+
+    def __str__(self):
+        string_output = "id:{} name:{} school:{} show:{} audition:{}reading:{} characterization:{} direction:{} vocal:{} movement:{} characterization_note:{} direction_note:{} vocal_note:{} movement_note:{} reading_note:{} overall_note:{}"
+        return string_output.format(
+            self.id,
+            self.user,
+            self.school,
+            self.show,
+            self.audition,
+            self.reading,
+            self.characterization,
+            self.direction,
+            self.vocal,
+            self.movement,
+            self.characterization_note,
+            self.direction_note,
+            self.vocal_note,
+            self.movement_note,
+            self.reading_note,
+            self.overall_note,
+            self.updated_at,
+            self.created_at,
+        )
+
+
 class Publisher(models.Model):
     name = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -591,48 +638,27 @@ class Conflict(models.Model):
                     self.created_at,
                 )
 
-    class Directorsnote(models.Model):
-        name = models.CharField(max_length=100)
-        user = models.CharField(max_length=100)
-        school = models.ForeignKey(School)
-        show = models.ForeignKey(Show)
-        audition = models.ForeignKey(Audtion)
-        reading = models.IntegerField()
-        characterization = models.IntegerField()
-        direction = models.IntegerField()
-        vocal = models.IntegerField()
-        movement = models.IntegerField()
-        reading_note = models.TextField()
-        characterization_note = models.TextField()
-        direction_note = models.TextField()
-        vocal_note = models.TextField()
-        movement_note = models.TextField()
-        overall_note = models.TextField()
-        updated_at = models.DateTimeField(auto_now=True)
-        created_at = models.DateTimeField(auto_now_add=True)
+        class Budgetexpense(models.Model):
+            name = models.CharField(max_length=100)
+            user = models.ForeignKey(User)
+            school = models.ForeignKey(School)
+            budgetitem = models.ForeignKey(Budgetitem)
+            amount = models.IntegerField()
+            has_receipt = models.BooleanField()
+            created_at = models.DateTimeField(auto_now_add=True)
+            updated_at = models.DateTimeField(auto_now=True)
 
-        def __unicode__(self):
-            return self.name
+            def __unicode__(self):
+                return self.name
 
-        def __str__(self):
-            string_output = "id:{} name:{} school:{} show:{} audition:{}reading:{} characterization:{} direction:{} vocal:{} movement:{} characterization_note:{} direction_note:{} vocal_note:{} movement_note:{} reading_note:{} overall_note:{}"
-            return string_output.format(
-                self.id,
-                self.user,
-                self.school,
-                self.show,
-                self.audition,
-                self.reading,
-                self.characterization,
-                self.direction,
-                self.vocal,
-                self.movement,
-                self.characterization_note,
-                self.direction_note,
-                self.vocal_note,
-                self.movement_note,
-                self.reading_note,
-                self.overall_note,
-                self.updated_at,
-                self.created_at,
-            )
+            def __str__(self):
+                string_output = "id:{} name:{} user:{} school:{} budgetitem:{} amount: {} has_receipt:{}"
+                return string_output.format(
+                    self.id,
+                    self.name,
+                    self.user,
+                    self.school,
+                    self.budgetitem,
+                    self, amount,
+                    self.has_receipt,
+                )
