@@ -1,10 +1,10 @@
-import { TheaterangPage } from './app.po';
+import { PublicPage } from './app.po';
 
-describe('theaterang App', () => {
-  let page: TheaterangPage;
+describe('public App', () => {
+  let page: PublicPage;
 
   beforeEach(() => {
-    page = new TheaterangPage();
+    page = new PublicPage();
   });
 
   it('should display welcome message', () => {
