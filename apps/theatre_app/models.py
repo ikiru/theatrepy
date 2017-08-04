@@ -552,7 +552,7 @@ class Conflict(models.Model):
 #
 #
 #
-# Dontions Models
+# Dontions  and fundraiser Models
 #
 #
 #
