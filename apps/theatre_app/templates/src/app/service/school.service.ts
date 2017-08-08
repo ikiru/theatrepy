@@ -18,4 +18,17 @@ export class SchoolService {
       .map(data => data.json())
       .toPromise();
   }
+  updateSchool(school) {
+    return this._http
+      .patch(`/schools/${school._id}`, school)
+      .map(data => data.json())
+      .toPromise();
+  }
+
+  destroySchool(id: string) {
+    return this._http
+      .delete(`/schools/${id}`)
+      .map(data => data.json())
+      .toPromise();
+  }
 }

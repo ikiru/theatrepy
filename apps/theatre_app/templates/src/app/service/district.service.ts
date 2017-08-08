@@ -18,4 +18,17 @@ export class DistrictService {
       .map(data => data.json())
       .toPromise();
   }
+  updateDistrict(district) {
+    return this._http
+      .patch(`/districts/${district._id}`, district)
+      .map(data => data.json())
+      .toPromise();
+  }
+
+  destroyDistrict(id: string) {
+    return this._http
+      .delete(`/districts/${id}`)
+      .map(data => data.json())
+      .toPromise();
+  }
 }
