@@ -15,11 +15,18 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.views.generic import TemplateView
+from django.contrib.staticfiles.views import serve
+from django.views.generic import RedirectView
 
 urlpatterns = [
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^$', serve, kwargs={'path': 'index.html'}),
+    url(r'^(?!/?static/)(?!/?media/)(?P<path>.*\..*)$',
+        RedirectView.as_view(url='/static/%(path)s', permanent=False)),
     url(r'^admin/', admin.site.urls),
-    # url(r'^$', TemplateView.as_view(template_name='theatre_app/public/index.html')),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^', include('apps.theatre_app.urls')),
     url('', include('social_django.urls', namespace='social')),
 ]
+
+# url(r'^$', TemplateView.as_view(template_name='todo/index.html')),

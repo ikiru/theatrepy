@@ -62,10 +62,11 @@ REST_FRAMEWORK = {
 
 ROOT_URLCONF = 'main.urls'
 
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['apps/theatre_app'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -134,7 +135,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+ANGULAR_DIR = os.path.join(BASE_DIR, 'apps/theatre_app/templates/dist')
+
+STATICFILES_DIRS = [
+    os.path.join(ANGULAR_DIR)
+]
+
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 AUTHENTICATION_BACKENDS = (
     # 'social_core.backends.open_id.OpenIdAuth',
