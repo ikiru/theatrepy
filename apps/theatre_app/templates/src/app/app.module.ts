@@ -20,6 +20,13 @@ import { DancetypeService } from "./service/dancetype.service";
 import { SpecialskillsService } from "./service/specialskills.service";
 import { VocaltypeService } from "./service/vocaltype.service";
 import { ShowlistService } from "./service/showlist.service";
+import { RolelistService } from "./service/rolelist.service";
+import { TechrolelistService } from "./service/techrolelist.service";
+import { ConflictService } from "./service/conflict.service";
+import { ConflictreasonService } from "./service/conflictreason.service";
+import { AuditionService } from "./service/audition.service";
+import { PublisherService } from "./service/publisher.service";
+import { VenueService } from "./service/venue.service";
 
 // Components
 import { AppComponent } from "./app.component";
@@ -47,7 +54,13 @@ import { AppComponent } from "./app.component";
     DancetypeService,
     SpecialskillsService,
     VocaltypeService,
-    ShowlistService
+    ShowlistService,
+    RolelistService,
+    TechrolelistService,
+    ConflictService,
+    AuditionService,
+    PublisherService,
+    VenueService
   ],
   bootstrap: [AppComponent]
 })
