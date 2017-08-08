@@ -23,6 +23,7 @@ router.register(r'conflictreason', views.ConflictReasonViewSet)
 router.register(r'audition', views.AudtionViewSet)
 router.register(r'publisher', views.PublisherViewSet)
 router.register(r'venue', views.VenueViewSet)
+router.register(r'Directorsnote', views.DirectorsnoteViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.

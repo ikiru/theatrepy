@@ -27,6 +27,7 @@ import { ConflictreasonService } from "./service/conflictreason.service";
 import { AuditionService } from "./service/audition.service";
 import { PublisherService } from "./service/publisher.service";
 import { VenueService } from "./service/venue.service";
+import { DirectorsnoteService } from "./service/directorsnote.service";
 
 // Components
 import { AppComponent } from "./app.component";
@@ -60,7 +61,8 @@ import { AppComponent } from "./app.component";
     ConflictService,
     AuditionService,
     PublisherService,
-    VenueService
+    VenueService,
+    DirectorsnoteService
   ],
   bootstrap: [AppComponent]
 })

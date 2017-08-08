@@ -8,24 +8,21 @@ export class VenueService {
 
   createVenue(venue) {
     return this._http
-      .post("/venue, venue)
+      .post("/venue", venue)
       .map(data => data.json())
       .toPromise();
   }
   getVenue(venue) {
-    return this._http
-      .get("/venue", venue)
-      .map(data => data.json())
-      .toPromise();
+    return this._http.get("/venue", venue).map(data => data.json()).toPromise();
   }
-  updateVenue(venue) {
+  updateConflict(conflict) {
     return this._http
-      .patch(`/venue/${venue._id}`, venue)
+      .patch(`/venue/${conflict._id}`, venue)
       .map(data => data.json())
       .toPromise();
   }
 
-  destroyVenue(id: string) {
+  destroyConflict(id: string) {
     return this._http
       .delete(`/venue/${id}`)
       .map(data => data.json())
