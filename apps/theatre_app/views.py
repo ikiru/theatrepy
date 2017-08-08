@@ -161,3 +161,11 @@ class VenueViewSet(viewsets.ModelViewSet):
     """
     queryset = Venue.objects.all()
     serializer_class = VenueSerializer
+
+
+class DirectorsnoteViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Directorsnote.objects.all()
+    serializer_class = DirectorsnoteSerializer

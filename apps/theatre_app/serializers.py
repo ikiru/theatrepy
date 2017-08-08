@@ -134,3 +134,10 @@ class VenueSerializer(serializers.HyperlinkedModelSerializer):
         model = Venue
         fields = ('id', 'user', 'name', 'address', 'city', 'state',
                   'zip', 'phone', 'website', 'in_district', 'notes')
+
+
+class DirectorsnoteSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Directorsnote
+        fields = ('id', 'user', 'name', 'user', ' school', 'showlist', 'audition', 'reading', 'characterization', 'direction', 'vocal',
+                  'movement', 'reading_note', 'characterization_note', 'direction_note', 'vocal_note', 'movement_note', 'overall_note,')
