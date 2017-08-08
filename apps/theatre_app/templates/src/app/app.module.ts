@@ -17,6 +17,9 @@ import { TlengthService } from "./service/tlength.service";
 import { TpositionService } from "./service/tposition.service";
 import { TrankService } from "./service/trank.service";
 import { DancetypeService } from "./service/dancetype.service";
+import { SpecialskillsService } from "./service/specialskills.service";
+import { VocaltypeService } from "./service/vocaltype.service";
+import { ShowlistService } from "./service/showlist.service";
 
 // Components
 import { AppComponent } from "./app.component";
@@ -41,7 +44,10 @@ import { AppComponent } from "./app.component";
     TlengthService,
     TpositionService,
     TrankService,
-    DancetypeService
+    DancetypeService,
+    SpecialskillsService,
+    VocaltypeService,
+    ShowlistService
   ],
   bootstrap: [AppComponent]
 })
