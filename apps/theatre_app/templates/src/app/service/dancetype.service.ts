@@ -3,31 +3,31 @@ import { Http } from "@angular/http";
 import "rxjs";
 
 @Injectable()
-export class SchoolService {
+export class DancetypeService {
   constructor(private _http: Http) {}
 
-  createSchools(school) {
+  createDancetype(dancetype) {
     return this._http
-      .post("/school", school)
+      .post("/dancetype", dancetype)
       .map(data => data.json())
       .toPromise();
   }
-  getSchool(school) {
+  getDancetype(dancetype) {
     return this._http
-      .get("/school", school)
+      .get("/dancetype", dancetype)
       .map(data => data.json())
       .toPromise();
   }
-  updateSchool(school) {
+  updateDancetype(dancetype) {
     return this._http
-      .patch(`/school/${school._id}`, school)
+      .patch(`/dancetype/${dancetype._id}`, dancetype)
       .map(data => data.json())
       .toPromise();
   }
 
-  destroySchool(id: string) {
+  destroyDancetype(id: string) {
     return this._http
-      .delete(`/school/${id}`)
+      .delete(`/dancetype/${id}`)
       .map(data => data.json())
       .toPromise();
   }
