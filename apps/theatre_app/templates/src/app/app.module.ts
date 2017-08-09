@@ -34,9 +34,21 @@ import { BudgetcatagoryService } from "./service/budgetcatagory.service";
 
 // Components
 import { AppComponent } from "./app.component";
+import { AboutComponent } from "./components/about/about.component";
+import { MenuComponent } from "./components/menu/menu.component";
+import { HeaderComponent } from "./components/header/header.component";
+import { FooterComponent } from "./components/footer/footer.component";
+import { NewsComponent } from "./components/news/news.component";
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    AboutComponent,
+    MenuComponent,
+    HeaderComponent,
+    FooterComponent,
+    NewsComponent
+  ],
   imports: [
     BrowserModule,
     NgModule,
