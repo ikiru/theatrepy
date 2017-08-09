@@ -28,6 +28,9 @@ import { AuditionService } from "./service/audition.service";
 import { PublisherService } from "./service/publisher.service";
 import { VenueService } from "./service/venue.service";
 import { DirectorsnoteService } from "./service/directorsnote.service";
+import { DonorService } from "./service/donor.service";
+import { DonortypeService } from "./service/donortype.service";
+import { BudgetcatagoryService } from "./service/budgetcatagory.service";
 
 // Components
 import { AppComponent } from "./app.component";
@@ -62,7 +65,9 @@ import { AppComponent } from "./app.component";
     AuditionService,
     PublisherService,
     VenueService,
-    DirectorsnoteService
+    DirectorsnoteService,
+    DonorService,
+    BudgetcatagoryService
   ],
   bootstrap: [AppComponent]
 })

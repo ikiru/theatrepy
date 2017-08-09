@@ -169,3 +169,27 @@ class DirectorsnoteViewSet(viewsets.ModelViewSet):
     """
     queryset = Directorsnote.objects.all()
     serializer_class = DirectorsnoteSerializer
+
+
+class DonorViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Donor.objects.all()
+    serializer_class = DonorSerializer
+
+
+class DonortypeViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Donortype.objects.all()
+    serializer_class = DonortypeSerializer
+
+
+class BudgetcatagoryViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Budgetcatagory.objects.all()
+    serializer_class = BudgetcatagorySerializer
