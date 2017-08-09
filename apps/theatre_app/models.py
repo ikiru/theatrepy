@@ -118,6 +118,42 @@ class Gradyear(models.Model):
         )
 
 
+class Usercatagory(models.Model):
+    name = models.CharField(max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return self.user
+
+    def __str__(self):
+        string_output = "id:{} name:{}"
+
+        return string_output.format(
+            self.id,
+            self.name,
+        )
+
+
+class User(models.Model):
+    name = models.CharField(max_length=100)
+    password = models.CharField(max_length=100)
+    usercatagory = models.ForeignKey(Usercatagory)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return self.user
+
+    def __str__(self):
+        string_output = "id:{} name:{}"
+
+        return string_output.format(
+            self.id,
+            self.name,
+        )
+
+
 class Profile(models.Model):
     user = models.OneToOneField(User)
     group = models.ForeignKey(Group)
@@ -525,10 +561,10 @@ class Venue(models.Model):
 
 
 class Conflict(models.Model):
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, related_name="conflcit")
     date = models.DateTimeField(auto_now=True)
     note = models.TextField()
-    conflicteason = models.ForeignKey(ConflictReason)
+    conflicteason = models.ForeignKey(ConflictReason, name="conflcit")
     is_approved = models.BooleanField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -557,97 +593,89 @@ class Conflict(models.Model):
 #
 #
 #
+class Donortype(models.Model):
+    name = models.CharField(max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
-    class Donor(models.Model):
-        user = models.ForeignKey(User)
-        firstname = models.CharField(max_length=100)
-        lastname = models.CharField(max_length=100)
-        business_name = models.CharField(max_length=100)
-        address = models.CharField(max_length=100)
-        city = models.CharField(max_length=100)
-        state = models.ForeignKey(State)
-        zip = models.CharField(max_length=100)
-        phone = models.CharField(max_length=100)
-        is_active = models.BooleanField()
-        note = models.TextField()
-        email = models.CharField(max_length=100)
-        school_id = models.CharField(max_length=100)
-        created_at = models.DateTimeField(auto_now_add=True)
-        updated_at = models.DateTimeField(auto_now=True)
+    def __unicode__(self):
+        return self.name
 
-        def __unicode__(self):
-            return self.name
+    def __str__(self):
+        string_output = "id:{} name:{}"
+        return string_output.format(
+            self.id,
+            self.name,
+        )
 
-        def __str__(self):
-            string_output = "id:{} user:{}firstname:{}lastname:{}business_name:{}address:{} city:{} state_id:{} zip:{} phone:{} is_active:{} date:{}note:{} note:{} email:{} school_id:{} "
-            return string_output.format(
-                self.id,
-                self.user,
-                self.firstname,
-                self.lastname,
-                self.business_name,
-                self.address,
-                self.city,
-                self.state_id,
-                self.zip,
-                self.phone,
-                self.is_active,
-                self.date,
-                self.note,
-                self.email,
-                self.school_id,
-            )
 
-    class Donortype(models.Model):
-        name = models.CharField(max_length=100)
-        created_at = models.DateTimeField(auto_now_add=True)
-        updated_at = models.DateTimeField(auto_now=True)
+class Donor(models.Model):
+    user = models.ForeignKey(User, name="donor")
+    firstname = models.CharField(max_length=100)
+    lastname = models.CharField(max_length=100)
+    business_name = models.CharField(max_length=100)
+    address = models.CharField(max_length=100)
+    city = models.CharField(max_length=100)
+    state = models.ForeignKey(State)
+    zip = models.CharField(max_length=100)
+    phone = models.CharField(max_length=100)
+    is_active = models.BooleanField()
+    note = models.TextField()
+    email = models.CharField(max_length=100)
+    school_id = models.CharField(max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
-        def __unicode__(self):
-            return self.name
+    def __unicode__(self):
+        return self.name
 
-        def __str__(self):
-            string_output = "id:{} name:{}"
-            return string_output.format(
-                self.id,
-                self.name,
-            )
+    def __str__(self):
+        string_output = "id:{} user:{}firstname:{}lastname:{}business_name:{}address:{} city:{} state_id:{} zip:{} phone:{} is_active:{} date:{}note:{} note:{} email:{} school_id:{} "
+        return string_output.format(
+            self.id,
+            self.user,
+            self.firstname,
+            self.lastname,
+            self.business_name,
+            self.address,
+            self.city,
+            self.state_id,
+            self.zip,
+            self.phone,
+            self.is_active,
+            self.date,
+            self.note,
+            self.email,
+            self.school_id,
+        )
 
-    class Donationtype(models.Model):
-        name = models.CharField(max_length=100)
-        user = models.CharField(max_length=100)
-        name = models.CharField(max_length=100)
-        donor = models.ForeignKey(Donor)
-        date = models.DateField()
-        donationtype = models.ForeignKey(Donationtype)
-        note = models.TextField()
-        has_receipt = models.BooleanField()
-        school = models.ForeignKey(School)
-        value = models.IntegerField()
-        upload = models.CharField(max_length=200)
-        updated_at = models.DateTimeField(auto_now=True)
-        created_at = models.DateTimeField(auto_now_add=True)
 
-        def __unicode__(self):
-            return self.name
+class Donationtype(models.Model):
+    name = models.CharField(max_length=100)
+    user = models.CharField(max_length=100)
+    updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
-        def __str__(self):
-            string_output = "id:{} name:{}"
-            return string_output.format(
-                self.id,
-                self.user,
-                self.name,
-                self.donor,
-                self.date,
-                self.donationtype,
-                self.note,
-                self.has_receipt,
-                self.school,
-                self.value,
-                self.upload,
-                self.updated_at,
-                self.created_at,
-            )
+    def __unicode__(self):
+        return self.name
+
+    def __str__(self):
+        string_output = "id:{} name:{}"
+        return string_output.format(
+            self.id,
+            self.user,
+            self.name,
+            self.donor,
+            self.date,
+            self.donationtype,
+            self.note,
+            self.has_receipt,
+            self.school,
+            self.value,
+            self.upload,
+            self.updated_at,
+            self.created_at,
+        )
 
 #
 #
@@ -659,42 +687,44 @@ class Conflict(models.Model):
 #
 #
 
-    class Budgetcatagory(models.Model):
-        name = models.CharField(max_length=100)
-        created_at = models.DateTimeField(auto_now_add=True)
-        updated_at = models.DateTimeField(auto_now=True)
 
-        def __unicode__(self):
-            return self.name
+class Budgetcatagory(models.Model):
+    name = models.CharField(max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
-        def __str__(self):
-            string_output = "id:{} name:{}"
-            return string_output.format(
-                self.id,
-                self.name,
-            )
+    def __unicode__(self):
+        return self.name
 
-    class Budgetexpense(models.Model):
-        name = models.CharField(max_length=100)
-        user = models.ForeignKey(User)
-        school = models.ForeignKey(School)
-        # budgetcatagory = models.ForeignKey(Budgetcatagory)
-        amount = models.IntegerField()
-        has_receipt = models.BooleanField()
-        created_at = models.DateTimeField(auto_now_add=True)
-        updated_at = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        string_output = "id:{} name:{}"
+        return string_output.format(
+            self.id,
+            self.name,
+        )
 
-        def __unicode__(self):
-            return self.name
 
-        def __str__(self):
-            string_output = "id:{} name:{} user:{} school:{} budgetitem:{} amount: {} has_receipt:{}"
-            return string_output.format(
-                self.id,
-                self.name,
-                self.user,
-                self.school,
-                self.budgetitem,
-                self, amount,
-                self.has_receipt,
-            )
+class Budgetexpense(models.Model):
+    name = models.CharField(max_length=100)
+    user = models.ForeignKey(User)
+    school = models.ForeignKey(School)
+    budgetcatagory = models.ForeignKey(Budgetcatagory)
+    amount = models.IntegerField()
+    has_receipt = models.BooleanField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return self.name
+
+    def __str__(self):
+        string_output = "id:{} name:{} user:{} school:{} budgetitem:{} amount: {} has_receipt:{}"
+        return string_output.format(
+            self.id,
+            self.name,
+            self.user,
+            self.school,
+            self.budgetitem,
+            self, amount,
+            self.has_receipt,
+        )
