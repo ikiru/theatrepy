@@ -141,3 +141,23 @@ class DirectorsnoteSerializer(serializers.HyperlinkedModelSerializer):
         model = Directorsnote
         fields = ('id', 'user', 'name', 'user', ' school', 'showlist', 'audition', 'reading', 'characterization', 'direction', 'vocal',
                   'movement', 'reading_note', 'characterization_note', 'direction_note', 'vocal_note', 'movement_note', 'overall_note,')
+
+
+class DonorSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Donor
+        fields = ('id', 'user', 'firstname', 'lastname', 'business_name', ' address', 'city',
+                  'state', 'zip', 'phone', 'is_active', 'note', 'email', 'school_id')
+
+
+class DonortypeSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Donortype
+        fields = ('id', 'name', 'user', 'name', 'date',
+                  'note', 'has_receipt', 'school', 'donationtype', 'donor')
+
+
+class BudgetcatagorySerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Budgetcatagory
+        fields = ('id', 'name')
