@@ -12,11 +12,8 @@ export class AuditionService {
       .map(data => data.json())
       .toPromise();
   }
-  getAudition(audition) {
-    return this._http
-      .get("/audition", audition)
-      .map(data => data.json())
-      .toPromise();
+  getAuditions(audition) {
+    return this._http.get("/audition").map(data => data.json()).toPromise();
   }
   updateAudition(audition) {
     return this._http

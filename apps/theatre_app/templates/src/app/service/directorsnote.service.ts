@@ -14,7 +14,7 @@ export class DirectorsnoteService {
   }
   getDirectorsnote(directorsnote) {
     return this._http
-      .get("/directorsnote", directorsnote)
+      .get("/directorsnote")
       .map(data => data.json())
       .toPromise();
   }

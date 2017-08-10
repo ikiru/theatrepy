@@ -13,10 +13,7 @@ export class SchoolService {
       .toPromise();
   }
   getSchool(school) {
-    return this._http
-      .get("/school", school)
-      .map(data => data.json())
-      .toPromise();
+    return this._http.get("/school").map(data => data.json()).toPromise();
   }
   updateSchool(school) {
     return this._http

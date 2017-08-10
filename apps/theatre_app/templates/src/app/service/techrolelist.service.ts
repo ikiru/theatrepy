@@ -13,10 +13,7 @@ export class TechrolelistService {
       .toPromise();
   }
   getTechrolelist(techrolelist) {
-    return this._http
-      .get("/techrolelist", techrolelist)
-      .map(data => data.json())
-      .toPromise();
+    return this._http.get("/techrolelist").map(data => data.json()).toPromise();
   }
   updateTechrolelist(techrolelist) {
     return this._http

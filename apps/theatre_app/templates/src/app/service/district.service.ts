@@ -13,10 +13,7 @@ export class DistrictService {
       .toPromise();
   }
   getDistrict(district) {
-    return this._http
-      .get("/district", district)
-      .map(data => data.json())
-      .toPromise();
+    return this._http.get("/district").map(data => data.json()).toPromise();
   }
   updateDistrict(district) {
     return this._http

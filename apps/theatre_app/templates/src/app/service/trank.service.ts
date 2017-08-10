@@ -13,6 +13,6 @@ export class TrankService {
       .toPromise();
   }
   getTrank(trank) {
-    return this._http.get("/trank", trank).map(data => data.json()).toPromise();
+    return this._http.get("/trank").map(data => data.json()).toPromise();
   }
 }

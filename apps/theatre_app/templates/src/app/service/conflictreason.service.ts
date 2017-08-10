@@ -14,7 +14,7 @@ export class ConflictreasonService {
   }
   getConflictreason(conflictreason) {
     return this._http
-      .get("/conflictreason", conflictreason)
+      .get("/conflictreason")
       .map(data => data.json())
       .toPromise();
   }

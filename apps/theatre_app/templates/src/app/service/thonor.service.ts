@@ -13,9 +13,6 @@ export class ThonorService {
       .toPromise();
   }
   getThonor(thonor) {
-    return this._http
-      .get("/thonor", thonor)
-      .map(data => data.json())
-      .toPromise();
+    return this._http.get("/thonor").map(data => data.json()).toPromise();
   }
 }

@@ -13,10 +13,7 @@ export class DancetypeService {
       .toPromise();
   }
   getDancetype(dancetype) {
-    return this._http
-      .get("/dancetype", dancetype)
-      .map(data => data.json())
-      .toPromise();
+    return this._http.get("/dancetype").map(data => data.json()).toPromise();
   }
   updateDancetype(dancetype) {
     return this._http

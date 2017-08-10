@@ -13,6 +13,6 @@ export class StateService {
       .toPromise();
   }
   getStates(state) {
-    return this._http.get("/state", state).map(data => data.json()).toPromise();
+    return this._http.get("/state").map(data => data.json()).toPromise();
   }
 }

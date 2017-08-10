@@ -13,9 +13,6 @@ export class TpositionService {
       .toPromise();
   }
   getTposition(tposition) {
-    return this._http
-      .get("/tposition", tposition)
-      .map(data => data.json())
-      .toPromise();
+    return this._http.get("/tposition").map(data => data.json()).toPromise();
   }
 }
