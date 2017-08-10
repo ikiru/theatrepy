@@ -14,7 +14,7 @@ export class BudgetcatagoryService {
   }
   getBudgetcatagory(budgetcatagory) {
     return this._http
-      .get("/budgetcatagory", budgetcatagory)
+      .get("/budgetcatagory")
       .map(data => data.json())
       .toPromise();
   }

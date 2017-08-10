@@ -13,10 +13,7 @@ export class ShowlistService {
       .toPromise();
   }
   getShowlist(showlist) {
-    return this._http
-      .get("/showlist", showlist)
-      .map(data => data.json())
-      .toPromise();
+    return this._http.get("/showlist").map(data => data.json()).toPromise();
   }
   updateShowlist(showlist) {
     return this._http

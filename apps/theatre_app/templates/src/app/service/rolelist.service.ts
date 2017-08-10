@@ -13,10 +13,7 @@ export class RolelistService {
       .toPromise();
   }
   getRolelist(rolelist) {
-    return this._http
-      .get("/rolelist", rolelist)
-      .map(data => data.json())
-      .toPromise();
+    return this._http.get("/rolelist").map(data => data.json()).toPromise();
   }
   updateRolelist(rolelist) {
     return this._http

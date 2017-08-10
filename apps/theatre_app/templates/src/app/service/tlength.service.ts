@@ -13,9 +13,6 @@ export class TlengthService {
       .toPromise();
   }
   getTlength(tlength) {
-    return this._http
-      .get("/tlength", tlength)
-      .map(data => data.json())
-      .toPromise();
+    return this._http.get("/tlength").map(data => data.json()).toPromise();
   }
 }

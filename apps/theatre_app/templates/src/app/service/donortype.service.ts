@@ -13,10 +13,7 @@ export class DonortypeService {
       .toPromise();
   }
   getDonortype(donortype) {
-    return this._http
-      .get("/donortype", donortype)
-      .map(data => data.json())
-      .toPromise();
+    return this._http.get("/donortype").map(data => data.json()).toPromise();
   }
   updateDonor(donortype) {
     return this._http

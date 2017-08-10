@@ -13,10 +13,7 @@ export class ConflictService {
       .toPromise();
   }
   getConflict(conflict) {
-    return this._http
-      .get("/conflict", conflict)
-      .map(data => data.json())
-      .toPromise();
+    return this._http.get("/conflict").map(data => data.json()).toPromise();
   }
   updateConflict(conflict) {
     return this._http

@@ -5,6 +5,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 import { AppRoutingModule } from "./app-routing.module";
+import { OAuthModule } from "angular-oauth2-oidc";
 
 // Services
 import { StateService } from "./service/state.service";
@@ -39,6 +40,7 @@ import { MenuComponent } from "./components/frontend/menu/menu.component";
 import { HeaderComponent } from "./components/frontend/header/header.component";
 import { FooterComponent } from "./components/frontend/footer/footer.component";
 import { NewsComponent } from "./components/frontend/news/news.component";
+import { HomeComponent } from "./components/frontend/home/home.component";
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { NewsComponent } from "./components/frontend/news/news.component";
     MenuComponent,
     HeaderComponent,
     FooterComponent,
-    NewsComponent
+    NewsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +58,8 @@ import { NewsComponent } from "./components/frontend/news/news.component";
     NgbModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    OAuthModule.forRoot()
   ],
   providers: [
     StateService,

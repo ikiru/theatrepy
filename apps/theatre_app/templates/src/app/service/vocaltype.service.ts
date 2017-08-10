@@ -13,10 +13,7 @@ export class VocaltypeService {
       .toPromise();
   }
   getVocaltype(vocaltype) {
-    return this._http
-      .get("/vocaltype", vocaltype)
-      .map(data => data.json())
-      .toPromise();
+    return this._http.get("/vocaltype").map(data => data.json()).toPromise();
   }
   updateVocaltype(vocaltype) {
     return this._http

@@ -13,10 +13,7 @@ export class SpecialskillsService {
       .toPromise();
   }
   getSpecialskills(specialskills) {
-    return this._http
-      .get("/specialskill", specialskills)
-      .map(data => data.json())
-      .toPromise();
+    return this._http.get("/specialskill").map(data => data.json()).toPromise();
   }
   updateSpecialskills(specialskills) {
     return this._http

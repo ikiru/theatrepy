@@ -13,10 +13,7 @@ export class PublisherService {
       .toPromise();
   }
   getPublisher(publisher) {
-    return this._http
-      .get("/publisher", publisher)
-      .map(data => data.json())
-      .toPromise();
+    return this._http.get("/publisher").map(data => data.json()).toPromise();
   }
   updatePublisher(publisher) {
     return this._http

@@ -13,16 +13,16 @@ export class VenueService {
       .toPromise();
   }
   getVenue(venue) {
-    return this._http.get("/venue", venue).map(data => data.json()).toPromise();
+    return this._http.get("/venue").map(data => data.json()).toPromise();
   }
-  updateConflict(conflict) {
+  updateVenue(venue) {
     return this._http
-      .patch(`/venue/${conflict._id}`, venue)
+      .patch(`/venue/${venue._id}`, venue)
       .map(data => data.json())
       .toPromise();
   }
 
-  destroyConflict(id: string) {
+  destroyVenue(id: string) {
     return this._http
       .delete(`/venue/${id}`)
       .map(data => data.json())

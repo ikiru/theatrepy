@@ -13,9 +13,6 @@ export class GradyearService {
       .toPromise();
   }
   getGradyear(gradyear) {
-    return this._http
-      .get("/gradyear", gradyear)
-      .map(data => data.json())
-      .toPromise();
+    return this._http.get("/gradyear").map(data => data.json()).toPromise();
   }
 }
