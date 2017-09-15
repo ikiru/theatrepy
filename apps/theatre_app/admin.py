@@ -11,7 +11,7 @@ class DistrictModel(admin.ModelAdmin):
     list_display = ["name", "updated_at", "created_at"]
     list_display_links = ["name"]
     list_filter = ["name"]
-    ist_editable = ["name"]
+    list_editable = ["name"]
     search_fields = ["name"]
 
     class Meta:
